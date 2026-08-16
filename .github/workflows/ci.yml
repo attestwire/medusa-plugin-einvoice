@@ -1,0 +1,55 @@
+# CI for the future standalone repo.
+#
+# The Node matrix is not decoration. `@attestwire/en16931` is an ESM-only
+# package and a Medusa plugin compiles to CommonJS, so the plugin depends on
+# Node's `require(esm)` support — unflagged from 20.19.0 and 22.12.0, which is
+# exactly the `engines` range Medusa 2.19 declares. The two floor versions are
+# in the matrix so that dependency stays proven rather than assumed.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["20.19.0", "22.12.0", "24.x"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit tests (mapping + validation)
+        run: npm test
+
+      - name: Prove require(esm) works on this Node
+        run: node -e "const m=require('@attestwire/en16931'); if(typeof m.validateInput!=='function') process.exit(1)"
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.12.0"
+          cache: npm
+      - run: npm ci
+      - name: Build the plugin
+        run: npx medusa plugin:build
+      - name: Check the published file list
+        run: npm pack --dry-run

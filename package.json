@@ -1,0 +1,97 @@
+{
+  "name": "medusa-plugin-einvoice",
+  "version": "0.1.0",
+  "description": "EN 16931 e-invoicing for Medusa v2 — generate and validate XRechnung, Peppol BIS 3.0 and Factur-X (CII) XML from your orders, locally and for free.",
+  "author": "Attestwire",
+  "license": "MIT",
+  "homepage": "https://attestwire.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attestwire/medusa-plugin-einvoice.git"
+  },
+  "bugs": {
+    "url": "https://github.com/attestwire/medusa-plugin-einvoice/issues"
+  },
+  "keywords": [
+    "medusa",
+    "medusa-plugin",
+    "medusa-v2",
+    "medusa-plugin-integration",
+    "medusa-plugin-other",
+    "e-invoice",
+    "einvoice",
+    "e-invoicing",
+    "en16931",
+    "xrechnung",
+    "factur-x",
+    "facturx",
+    "zugferd",
+    "peppol",
+    "ubl",
+    "cii",
+    "vat",
+    "invoice",
+    "compliance"
+  ],
+  "files": [
+    ".medusa/server"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    "./workflows": "./.medusa/server/src/workflows/index.js",
+    "./lib": "./.medusa/server/src/lib/index.js",
+    "./.medusa/server/src/modules/*": "./.medusa/server/src/modules/*/index.js",
+    "./modules/*": "./.medusa/server/src/modules/*/index.js",
+    "./providers/*": "./.medusa/server/src/providers/*/index.js",
+    "./admin": {
+      "import": "./.medusa/server/src/admin/index.mjs",
+      "require": "./.medusa/server/src/admin/index.js",
+      "default": "./.medusa/server/src/admin/index.js"
+    },
+    "./*": "./.medusa/server/src/*.js"
+  },
+  "scripts": {
+    "build": "medusa plugin:build",
+    "dev": "medusa plugin:develop",
+    "db:generate": "medusa plugin:db:generate",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run test && medusa plugin:build"
+  },
+  "dependencies": {
+    "@attestwire/en16931": "^0.7.0"
+  },
+  "devDependencies": {
+    "@medusajs/admin-sdk": "2.19.0",
+    "@medusajs/cli": "2.19.0",
+    "@medusajs/framework": "2.19.0",
+    "@medusajs/icons": "2.19.0",
+    "@medusajs/medusa": "2.19.0",
+    "@medusajs/test-utils": "2.19.0",
+    "@medusajs/ui": "4.2.1",
+    "@swc/core": "^1.7.28",
+    "@types/node": "^20.19.43",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.2.25",
+    "jiti": "^2.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  },
+  "peerDependencies": {
+    "@medusajs/admin-sdk": "^2.19.0",
+    "@medusajs/cli": "^2.19.0",
+    "@medusajs/framework": "^2.19.0",
+    "@medusajs/icons": "^2.19.0",
+    "@medusajs/medusa": "^2.19.0",
+    "@medusajs/ui": "^4.2.1"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
