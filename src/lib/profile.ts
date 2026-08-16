@@ -14,8 +14,8 @@ import {
   type Profile,
 } from "@attestwire/en16931"
 
-import { normaliseCountryCode } from "./countries.js"
-import type { EInvoicePluginOptions, MedusaOrder } from "./types.js"
+import { normaliseCountryCode } from "./countries"
+import type { EInvoicePluginOptions, MedusaOrder } from "./types"
 
 export type Syntax = "ubl" | "cii"
 

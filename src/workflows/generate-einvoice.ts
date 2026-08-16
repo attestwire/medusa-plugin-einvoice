@@ -6,10 +6,10 @@ import {
 } from "@medusajs/framework/workflows-sdk"
 import { Modules } from "@medusajs/framework/utils"
 
-import { EINVOICE_MODULE } from "../modules/einvoice/index.js"
-import type EInvoiceModuleService from "../modules/einvoice/service.js"
-import type { EInvoiceResult } from "../lib/generate.js"
-import type { MedusaOrder } from "../lib/types.js"
+import { EINVOICE_MODULE } from "../modules/einvoice/index"
+import type EInvoiceModuleService from "../modules/einvoice/service"
+import type { EInvoiceResult } from "../lib/generate"
+import type { MedusaOrder } from "../lib/types"
 
 /**
  * Every field the mapping reads.

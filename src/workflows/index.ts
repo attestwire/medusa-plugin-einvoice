@@ -11,6 +11,6 @@ export {
   EINVOICE_ORDER_FIELDS,
   type GenerateEInvoiceInput,
   type GenerateEInvoiceOutput,
-} from "./generate-einvoice.js"
+} from "./generate-einvoice"
 
-export { generateEInvoiceWorkflow as default } from "./generate-einvoice.js"
+export { generateEInvoiceWorkflow as default } from "./generate-einvoice"

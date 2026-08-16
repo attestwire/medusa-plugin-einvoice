@@ -20,7 +20,7 @@
  * invoice must never fail to generate because a third-party API was down.
  */
 
-import type { EInvoiceResult } from "./generate.js"
+import type { EInvoiceResult } from "./generate"
 
 const DEFAULT_BASE_URL = "https://api.attestwire.com"
 const TIMEOUT_MS = 8_000

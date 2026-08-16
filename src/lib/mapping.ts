@@ -48,9 +48,9 @@ import type {
   VatCategory,
 } from "@attestwire/en16931"
 
-import { netAmount, netUnitPrice, round2, toNumber } from "./amounts.js"
-import { isEuCountry, normaliseCountryCode } from "./countries.js"
-import { resolveProfile } from "./profile.js"
+import { netAmount, netUnitPrice, round2, toNumber } from "./amounts"
+import { isEuCountry, normaliseCountryCode } from "./countries"
+import { resolveProfile } from "./profile"
 import type {
   EInvoicePluginOptions,
   MappingNote,
@@ -60,7 +60,7 @@ import type {
   MedusaOrder,
   MedusaShippingMethod,
   MedusaTaxLine,
-} from "./types.js"
+} from "./types"
 
 export interface MappingResult {
   input: InvoiceInput

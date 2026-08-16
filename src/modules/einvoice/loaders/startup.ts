@@ -3,8 +3,8 @@ import { MedusaError } from "@medusajs/framework/utils"
 import { createRequire } from "node:module"
 import { join } from "node:path"
 
-import { fetchVersions, ruleCurrencyMessage } from "../../../lib/attestwire.js"
-import type { EInvoicePluginOptions } from "../../../lib/types.js"
+import { fetchVersions, ruleCurrencyMessage } from "../../../lib/attestwire"
+import type { EInvoicePluginOptions } from "../../../lib/types"
 
 /**
  * Fail loudly at boot for a misconfiguration, and warn once about a stale

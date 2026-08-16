@@ -1,6 +1,17 @@
 {
   "compilerOptions": {
     "target": "ES2021",
+    // NodeNext, not esnext/bundler. The plugin ships CommonJS (there is no
+    // `"type": "module"` in package.json), and NodeNext is what makes both
+    // `tsc` and ts-node agree on that: every file here is a CJS module, so
+    // relative imports stay extensionless and `medusa plugin:db:generate`
+    // — which loads these files through Node's require hook — can resolve
+    // them. Under `module: esnext` ts-node registers the files as ESM and
+    // Node's ESM resolver rejects extensionless specifiers.
+    //
+    // NodeNext (rather than Node16) is also load-bearing for the ESM-only
+    // `@attestwire/en16931` dependency: TypeScript only permits `require()`
+    // of an ES module under NodeNext, matching Node >=20.19/22.12.
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "lib": ["ES2021", "DOM"],
@@ -18,6 +29,11 @@
     "jsx": "react-jsx",
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true
+  },
+  // Matches the official Medusa plugin starter: the CLI loads source files
+  // through ts-node, and swc is what keeps that fast.
+  "ts-node": {
+    "swc": true
   },
   "include": ["src/**/*", "test/**/*", ".medusa/types/*"],
   "exclude": ["node_modules", ".medusa/server", "src/admin", "dist"]

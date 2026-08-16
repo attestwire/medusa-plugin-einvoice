@@ -15,16 +15,16 @@ export {
   MAPPING_DEFAULTS,
   type MappingResult,
   type Reconciliation,
-} from "./mapping.js"
+} from "./mapping"
 
 export {
   buildEInvoice,
   generateForInput,
   type EInvoiceResult,
   type FindingSummary,
-} from "./generate.js"
+} from "./generate"
 
-export { resolveProfile, syntaxFor, type Syntax } from "./profile.js"
+export { resolveProfile, syntaxFor, type Syntax } from "./profile"
 
 export {
   createValidationRecord,
@@ -34,10 +34,10 @@ export {
   DEFAULT_BASE_URL,
   type ValidationRecord,
   type VersionsDocument,
-} from "./attestwire.js"
+} from "./attestwire"
 
-export { toNumber, round2, netUnitPrice, netAmount } from "./amounts.js"
-export { isEuCountry, normaliseCountryCode } from "./countries.js"
+export { toNumber, round2, netUnitPrice, netAmount } from "./amounts"
+export { isEuCountry, normaliseCountryCode } from "./countries"
 
 export type {
   EInvoicePluginOptions,
@@ -49,4 +49,4 @@ export type {
   MedusaTaxLine,
   MedusaAdjustment,
   MedusaAddress,
-} from "./types.js"
+} from "./types"

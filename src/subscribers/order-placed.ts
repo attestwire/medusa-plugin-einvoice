@@ -1,8 +1,8 @@
 import type { SubscriberArgs, SubscriberConfig } from "@medusajs/framework"
 
-import { generateEInvoiceWorkflow } from "../workflows/generate-einvoice.js"
-import { EINVOICE_MODULE } from "../modules/einvoice/index.js"
-import type EInvoiceModuleService from "../modules/einvoice/service.js"
+import { generateEInvoiceWorkflow } from "../workflows/generate-einvoice"
+import { EINVOICE_MODULE } from "../modules/einvoice/index"
+import type EInvoiceModuleService from "../modules/einvoice/service"
 
 /**
  * Generate the invoice when the order is placed.

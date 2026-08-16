@@ -1,8 +1,8 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 
-import { generateEInvoiceWorkflow } from "../../../../../workflows/generate-einvoice.js"
-import { EINVOICE_MODULE } from "../../../../../modules/einvoice/index.js"
-import type EInvoiceModuleService from "../../../../../modules/einvoice/service.js"
+import { generateEInvoiceWorkflow } from "../../../../../workflows/generate-einvoice"
+import { EINVOICE_MODULE } from "../../../../../modules/einvoice/index"
+import type EInvoiceModuleService from "../../../../../modules/einvoice/service"
 
 /**
  * `GET /admin/orders/:id/einvoice`

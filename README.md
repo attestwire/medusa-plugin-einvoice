@@ -294,6 +294,22 @@ The test suite's standing rule: every fixture that should produce a sendable
 invoice must come back `valid: true` from the engine, and one that should not
 must fail *by naming the rule*.
 
+### Regenerating the migration
+
+Only needed after changing the model in `src/modules/einvoice/models/`. The
+Medusa CLI builds its own MikroORM config for this command, so it reads
+`DB_HOST`/`DB_PORT`/`DB_USERNAME`/`DB_PASSWORD` rather than `DATABASE_URL`, and
+it connects to a database named `medusa-einvoice`, which must exist:
+
+```bash
+DB_HOST=localhost DB_PORT=5432 DB_USERNAME=postgres DB_PASSWORD=postgres \
+  npm run db:generate
+```
+
+The diff is taken against `.snapshot-medusa-einvoice.json`, which is committed
+next to the migrations. Keep it committed — without it the next run emits a
+duplicate create-table migration instead of an incremental one.
+
 ## License
 
 MIT

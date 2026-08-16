@@ -51,5 +51,34 @@ jobs:
       - run: npm ci
       - name: Build the plugin
         run: npx medusa plugin:build
+
+      # The migration is what makes `npx medusa db:migrate` do anything in a
+      # consuming app. Shipping a build without it installs a plugin whose
+      # table never gets created, and the failure only shows up at the first
+      # order. So the compiled migration is asserted, not assumed.
+      - name: Prove the migration is compiled and requireable
+        run: |
+          node -e "
+            const { glob } = require('glob');
+            const files = glob.sync('.medusa/server/src/modules/einvoice/migrations/Migration*.js');
+            if (!files.length) throw new Error('no compiled migration in the build output');
+            for (const f of files) {
+              const m = require('./' + f);
+              const cls = Object.values(m).find((v) => typeof v === 'function');
+              if (!cls) throw new Error('migration ' + f + ' exports no class');
+            }
+            console.log('compiled migrations OK:', files.join(', '));
+          "
+
       - name: Check the published file list
         run: npm pack --dry-run
+
+      - name: Prove the migration is in the tarball
+        run: |
+          npm pack --dry-run --json > /tmp/pack.json
+          node -e "
+            const p = require('/tmp/pack.json')[0];
+            const hit = p.files.some((f) => /modules\/einvoice\/migrations\/Migration.*\.js\$/.test(f.path));
+            if (!hit) throw new Error('the published tarball contains no migration');
+            console.log('migration present in tarball');
+          "

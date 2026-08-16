@@ -1,9 +1,9 @@
 import { MedusaService } from "@medusajs/framework/utils"
 
-import EInvoiceDocument from "./models/einvoice-document.js"
-import { buildEInvoice, type EInvoiceResult } from "../../lib/generate.js"
-import { createValidationRecord } from "../../lib/attestwire.js"
-import type { EInvoicePluginOptions, MedusaOrder } from "../../lib/types.js"
+import EInvoiceDocument from "./models/einvoice-document"
+import { buildEInvoice, type EInvoiceResult } from "../../lib/generate"
+import { createValidationRecord } from "../../lib/attestwire"
+import type { EInvoicePluginOptions, MedusaOrder } from "../../lib/types"
 
 /**
  * The module service.

@@ -6,7 +6,7 @@
  * tax-inclusive price as a net one.
  */
 
-import type { MedusaAmount } from "./types.js"
+import type { MedusaAmount } from "./types"
 
 /**
  * Coerce whatever Medusa handed us into a number.

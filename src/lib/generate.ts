@@ -22,9 +22,9 @@ import {
   type TeachingError,
 } from "@attestwire/en16931"
 
-import { mapOrderToInvoiceInput, reconcileTotals, type Reconciliation } from "./mapping.js"
-import { syntaxFor, type Syntax } from "./profile.js"
-import type { EInvoicePluginOptions, MappingNote, MedusaOrder } from "./types.js"
+import { mapOrderToInvoiceInput, reconcileTotals, type Reconciliation } from "./mapping"
+import { syntaxFor, type Syntax } from "./profile"
+import type { EInvoicePluginOptions, MappingNote, MedusaOrder } from "./types"
 
 export interface FindingSummary {
   rule: string
