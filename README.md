@@ -310,6 +310,17 @@ The diff is taken against `.snapshot-medusa-einvoice.json`, which is committed
 next to the migrations. Keep it committed — without it the next run emits a
 duplicate create-table migration instead of an incremental one.
 
+## Related
+
+- [`@attestwire/en16931`](https://github.com/attestwire/en16931): the rule
+  engine this plugin maps orders into, for validating and generating invoices
+  anywhere else in your stack.
+- [Validate E-Invoice](https://github.com/attestwire/validate-einvoice-action):
+  a GitHub Action that runs the same checks on every pull request, so a mapping
+  change that breaks XRechnung fails CI rather than a customer's invoice.
+- [Rule reference](https://attestwire.com/rules/): one page per rule, with the
+  reason and the fix.
+
 ## License
 
 MIT
