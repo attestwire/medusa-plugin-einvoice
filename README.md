@@ -323,4 +323,11 @@ duplicate create-table migration instead of an incremental one.
 
 ## License
 
-MIT
+MIT.
+
+## Trademark
+
+"Attestwire"™ and the Attestwire logo are trademarks of this project's owner. The
+MIT license covers the code and grants no trademark rights. You may say your
+store or product uses this plugin, or is built on it; you may not name or brand a
+product or service "Attestwire", or imply that we endorse yours.
