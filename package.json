@@ -1,6 +1,6 @@
 {
   "name": "medusa-plugin-einvoice",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "EN 16931 e-invoicing for Medusa v2 — generate and validate XRechnung, Peppol BIS 3.0 and Factur-X (CII) XML from your orders, locally and for free.",
   "author": "Attestwire",
   "license": "MIT",
@@ -59,16 +59,16 @@
     "prepublishOnly": "npm run test && medusa plugin:build"
   },
   "dependencies": {
-    "@attestwire/en16931": "^0.8.0"
+    "@attestwire/en16931": "^0.12.0"
   },
   "devDependencies": {
-    "@medusajs/admin-sdk": "2.19.0",
-    "@medusajs/cli": "2.19.0",
-    "@medusajs/framework": "2.19.0",
-    "@medusajs/icons": "2.19.0",
-    "@medusajs/medusa": "2.19.0",
-    "@medusajs/test-utils": "2.19.0",
-    "@medusajs/ui": "4.2.1",
+    "@medusajs/admin-sdk": "2.21.0",
+    "@medusajs/cli": "2.21.0",
+    "@medusajs/framework": "2.21.0",
+    "@medusajs/icons": "2.21.0",
+    "@medusajs/medusa": "2.21.0",
+    "@medusajs/test-utils": "2.21.0",
+    "@medusajs/ui": "4.2.4",
     "@swc/core": "^1.7.28",
     "@types/node": "^20.19.43",
     "@types/react": "^18.3.2",
